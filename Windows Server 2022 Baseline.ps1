@@ -284,7 +284,7 @@ $ExecutionList = @(
     "TcpMaxDataRetransmissionsV6",                                      #18.4.10
     "TcpMaxDataRetransmissions",                                        #18.4.11
     "SecurityWarningLevel",                                             #18.4.12
-    "EnableDNSOverDoH",                                                 #18.5.4.1 (2023.01.27 - added support)
+    #Not appliable cuz it sucks 18.5.4.1 (2023.01.27 - added support)
     "EnableMulticast",                                                  #18.5.4.2
     "EnableFontProviders",                                              #18.5.5.1
     "AllowInsecureGuestAuth",                                           #18.5.8.1
@@ -2128,12 +2128,6 @@ function SecurityWarningLevel {
     #18.4.12 => Computer Configuration\Policies\Administrative Templates\MSS (Legacy)\MSS: (WarningLevel) Percentage threshold for the security event log at which the system will generate a warning 
     Write-Info "18.4.12 (L1) Ensure 'MSS: (WarningLevel) Percentage threshold for the security event log at which the system will generate a warning' is set to 'Enabled: 90% or less'"
     SetRegistry "HKLM:\SYSTEM\CurrentControlSet\Services\Eventlog\Security" "WarningLevel" "90" $REG_DWORD
-}
-
-function EnableDNSOverDoH {
-    #18.5.4.1 => Computer Configuration\Policies\Administrative Templates\Network\DNS Client\Configure DNS over HTTPS (DoH) name resolution
-    Write-Info "18.5.4.1 (L1) Ensure 'Configure DNS over HTTPS (DoH) name resolution' is set to 'Enabled: Allow DoH' or higher"
-    SetRegistry "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\DNSClient" "DoHPolicy" "3" $REG_DWORD
 }
 
 function EnableMulticast {
